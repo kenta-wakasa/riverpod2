@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:riverpod2/feature/couner/page/counter_page.dart';
 import 'package:riverpod2/feature/hello_world/page/hello_world_page.dart';
 import 'package:riverpod2/feature/todo/page/todo/todo_page.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -22,7 +23,11 @@ GoRouter goRouter(GoRouterRef ref) {
       GoRoute(
         path: HelloWorldPage.path,
         builder: (context, state) => const HelloWorldPage(),
-      )
+      ),
+      GoRoute(
+        path: CounterPage.path,
+        builder: (context, state) => const CounterPage(),
+      ),
     ],
   );
 }

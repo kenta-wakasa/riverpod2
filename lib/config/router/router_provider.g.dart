@@ -21,7 +21,7 @@ final initialLocationProvider = AutoDisposeProvider<String>.internal(
 );
 
 typedef InitialLocationRef = AutoDisposeProviderRef<String>;
-String _$goRouterHash() => r'eef3df2e724b1f6f1b5515e3db9f16040c688587';
+String _$goRouterHash() => r'05ed3605d98172411f06825137113d648c887435';
 
 /// See also [goRouter].
 @ProviderFor(goRouter)

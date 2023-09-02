@@ -6,25 +6,11 @@ part of 'todo_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$testFunctionHash() => r'50fdfb1dbb4752780fab3098fdf93c7a98e6a350';
+String _$todoReferenceHash() => r'2737131119925253455b6f64dc31e9f06d5316bf';
 
 /// 関数も提供できる
 ///
-/// Copied from [testFunction].
-@ProviderFor(testFunction)
-final testFunctionProvider = AutoDisposeProvider<void Function()>.internal(
-  testFunction,
-  name: r'testFunctionProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$testFunctionHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef TestFunctionRef = AutoDisposeProviderRef<void Function()>;
-String _$todoReferenceHash() => r'dc98e5169d12ca171a7ac63b65b828a166f695bc';
-
-/// See also [todoReference].
+/// Copied from [todoReference].
 @ProviderFor(todoReference)
 final todoReferenceProvider =
     AutoDisposeProvider<CollectionReference<ToDo?>>.internal(
@@ -52,7 +38,22 @@ final todosProvider = AutoDisposeStreamProvider<List<ToDo>>.internal(
 );
 
 typedef TodosRef = AutoDisposeStreamProviderRef<List<ToDo>>;
-String _$todoControllerHash() => r'4d3753689aa6cffa063fc73828dc808ce3997cbe';
+String _$sortedTodosHash() => r'a02c0063a44f08931f0366518ac84b9cae6ae238';
+
+/// See also [sortedTodos].
+@ProviderFor(sortedTodos)
+final sortedTodosProvider =
+    AutoDisposeProvider<AsyncValue<List<ToDo>>>.internal(
+  sortedTodos,
+  name: r'sortedTodosProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$sortedTodosHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef SortedTodosRef = AutoDisposeProviderRef<AsyncValue<List<ToDo>>>;
+String _$todoControllerHash() => r'e121b6f7f41498fdb0c403244c5bdf37d57a16f2';
 
 /// TODO③：完了状態になっているTodoインスタンスはすべて下にまとまるように順番を変更するProviderを作ってみよう
 /// todosProviderを使ってやれば簡単にできそうだね。

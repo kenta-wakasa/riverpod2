@@ -29,7 +29,6 @@ class _TodoFormState extends ConsumerState<TodoForm> {
 
   /// TextEditingControllerを操作するため関数でラップする。
   Future<void> addTodo() async {
-    ref.read(testFunctionProvider)();
     ref
         .read(todoControllerProvider.notifier)
         .addTodo(textEditingController.text);

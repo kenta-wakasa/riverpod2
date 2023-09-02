@@ -13,21 +13,28 @@ class TodoListView extends ConsumerWidget {
     /// - 読み取り成功！
     /// - 読み取り失敗！
     /// - 読み取り中！
-    return ref.watch(todosProvider).when(
-          /// 読み取り成功！
-          data: (data) {
-            return ListView.builder(
-              shrinkWrap: true,
-              itemCount: data.length,
-              itemBuilder: (context, index) => TodoListTile(todo: data[index]),
-            );
-          },
+    final todos = ref.watch(todosProvider).valueOrNull ?? [];
+    return ListView.builder(
+      shrinkWrap: true,
+      itemCount: todos.length,
+      itemBuilder: (context, index) => TodoListTile(todo: todos[index]),
+    );
 
-          /// 読み取り失敗！
-          error: (_, __) => const Center(child: Text('エラーです')),
+    // return todos.when<Widget>(
+    //   /// 読み取り成功！
+    //   data: (data) {
+    //     return ListView.builder(
+    //       shrinkWrap: true,
+    //       itemCount: data.length,
+    //       itemBuilder: (context, index) => TodoListTile(todo: data[index]),
+    //     );
+    //   },
 
-          /// 今読み取り中！
-          loading: () => const Center(child: CircularProgressIndicator()),
-        );
+    //   /// 読み取り失敗！
+    //   error: (_, __) => const Center(child: Text('エラーです')),
+
+    //   /// 今読み取り中！
+    //   loading: () => const Center(child: CircularProgressIndicator()),
+    // );
   }
 }
